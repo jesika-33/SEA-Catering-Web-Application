@@ -3,36 +3,57 @@
 <html>
     <head>
         <title>SEA Catering | Healthy Meals, Anytime, Anywhere</title>
-        <link rel = "stylesheet" href = "SEACateringWebPage.css">
+        <link rel = "stylesheet" href = "SEACateringHomePage.css">
     </head>
     <body>
+        <nav>
+            <h1>SEA Catering</h1>
+            <ul id="navbar">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#plans">Meal Plans</a></li>
+                <li><a href="#features">Subscriptions</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
         <header class = "header-container">
             <img src = "IndividuelleBoxen_2a25475e-683e-4cd3-b79b-73742ade3d96_480x480.webp">
             <div class = "header-description">
                 <h1>SEA Catering</h1>
                 <p>“Healthy Meals, Anytime, Anywhere”</p>
+                <button>See Pricing & Plans</button>
             </div>
         </header>
-
+    
         <div class="container">
             <!-- Welcome Section -->
-            <section>
+            <section id ="welcome" class = "welcome">
                 <h2>Welcome to SEA Catering</h2>
                 <p>At SEA Catering, we specialize in bringing customizable, healthy meal plans right to your doorstep. Whether you’re at home, at work, or on the go, we make it easy to enjoy nutritious meals delivered anywhere across Indonesia.</p>
             </section>
             
             <!-- Key Features Section -->
-            <section class="features">
-                <h2>Our Services</h2>
-                <ul>
-                    <li>Customizable meal plans to suit your dietary preferences.</li>
-                    <li>Delivery to major cities across Indonesia at your convenience.</li>
-                    <li>Detailed nutritional information included with every meal.</li>
-                </ul>
+            <section id="features" class="features">
+                <h2>Why Choose FreshMeals?</h2>
+                <div class="grid">
+                    <div>
+                        <h3>Customizable</h3>
+                        <p>Get customizable meal plans to suit your dietary preferences and goals.</p>
+                    </div>
+                    <div>
+                        <h3>Convenient</h3>
+                        <p>Delivery to major cities across Indonesia for your convenience.</p>
+                    </div>
+                    <div>
+                        <h3>Informative</h3>
+                        <p>Detailed nutritional information included with every meal.</p>
+                    </div>
+                </div>
             </section>
 
             <!-- Contact Details Section -->
-            <section>
+            <section id = "contact" class ="contact">
                 <h2>Contact Us</h2>
                 <p>Have questions or need assistance? Reach out to us!</p>
                 <p><strong>Manager:</strong> Brian</p>
@@ -41,6 +62,7 @@
         </div>
 
         <footer>
+            <!-- Copyright, Policy and Terms of Service -->
             <p>&copy; 2025 SEA Catering. All rights reserved.</p>
             <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
         </footer>
