@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Testimonials – SEA Catering</title>
+    <link rel="stylesheet" href="CSS/SEACateringHomePage.css">
+    <link rel = "stylesheet" href = "CSS/SeaCateringTestimonials.css">
+</head>
+<body>
+
+    <nav>
+        <h1>SEA Catering</h1>
+        <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+        <ul id="navbar" class="menu">
+            <li><a href="SEACateringHomePage.html">Home</a></li>
+            <li><a href="SEACateringMealPlans.html">Meal Plans</a></li>
+            <li><a href="#features">Subscriptions</a></li>
+            <li><a href="SEACateringTestimonials.html" class="active">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    
+        <header class="header-container">
+            <img src="Images/istockphoto-1480574526-612x612.jpg" alt="Catering food header image">
+            <div class="header-description">
+                <h1>Testimonials</h1>
+                <a href="#testimonial-form">Submit My Testimony</a>
+            </div>
+        </header>
+      <main>
+        <section class="slider-container">
+            <div class="testimonial-slider">
+                <div class="testimonial-card active">
+                    <img src="Images/happy-attractive-african-business-leader-600nw-2451794349.webp" alt="User 1" class="testimonial-avatar">
+                    <p class="testimonial-text">"SEA Catering has been an absolute game-changer for my busy schedule! As a professional who travels frequently, knowing my healthy, customized meals will be delivered right to my door, no matter where I am in the country, is incredibly reassuring. Highly recommend for anyone needing convenience without compromising quality!</p>
+                    <p class="testimonial-author">- Jane Doe, Satisfaction: 90/100 </p>
+                </div>
+
+                <div class="testimonial-card">
+                    <img src="Images/images.jpg" alt="User 2" class="testimonial-avatar">
+                    <p class="testimonial-text">"The food from SEA Catering is simply delicious! I've tried other meal services, but none compare to the freshness and flavor packed into every dish."</p>
+                    <p class="testimonial-author">- John Smith, Satisfaction: 98/100</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <img src="Images/images (2).jpg" alt="User 3" class="testimonial-avatar">
+                    <p class="testimonial-text">"Finding a meal service that truly caters to my specific dietary restrictions (gluten-free and dairy-free) used to be a nightmare. SEA Catering's customization options are fantastic! "</p>
+                    <p class="testimonial-author">- Emily White, Satisfaction: 92/100</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <img src="Images/images (1).jpg" alt="User 4" class="testimonial-avatar">
+                    <p class="testimonial-text">"I've been a subscriber to SEA Catering for six months now, and I couldn't be happier. The value for money is incredible, considering the quality and convenience of having healthy, balanced meals delivered to my doorstep anywhere in the country."</p>
+                    <p class="testimonial-author">- David Green, Satisfaction: 95/100</p>
+                </div>
+            </div>
+
+            <button class="prev-btn">&#10094;</button>
+            <button class="next-btn">&#10095;</button>
+
+            <div class="dots-container">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+                <span class="dot" data-slide="3"></span>
+            </div>
+        </section>
+        
+        <section id="testimonial-form" class="testimonial-form">
+            <h2>Submit Your Testimonial</h2>
+            <form id="new-testimonial">
+                <label for="reviewer-name">Name:</label>
+                <input type="text" id="reviewer-name" name="name" required>
+
+                <label for="testimonial-message">Testimonial:</label>
+                <textarea id="testimonial-message" name="message" rows="4" required></textarea>
+
+                <label for="satisfaction">On a scale of 0 to 100, how satisfied are you?</label>
+                <input
+                    type="range"
+                    id="satisfaction"
+                    name="satisfaction"
+                    min="0"
+                    max="100"
+                    value="50"
+                    oninput="this.nextElementSibling.value = this.value"
+                />
+                <output>50</output><br>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+            <!-- Copyright, Policy and Terms of Service -->
+            <p>&copy; 2025 SEA Catering. All rights reserved.</p>
+            <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </footer>
+    <script src="Javascript/SEACateringHomePage.js"></script>
+    <script src = "Javascript/SEACateringTestimoni.js"></script>
+    <script>
+    </script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Meal Plan – SEA Catering</title>
+  <link rel="stylesheet" href="CSS/SEACateringHomePage.css">
+  <link rel="stylesheet" href="CSS/SEACateringMealPlans.css">
+</head>
+<body>
+  <nav>
+      <h1>SEA Catering</h1>-->
+      <!-- Menu Toggle Button (Visible on Mobile) -->
+<!--<span class="menu-toggle" onclick="toggleMenu()">☰</span>
+      <ul id="navbar" class = "menu">
+      <li><a href="SEACateringHomePage.html">Home</a></li>
+      <li><a href="SEACateringMealPlans.html" class="active">Meal Plans</a></li>
+      <li><a href="#features">Subscriptions</a></li>
+      <li><a href="SEACateringTestimonials.html">Testimonials</a></li>
+      <li><a href="#contact">Contact</a></li>
+      </ul>  
+  </nav>
+
+  <main>
+    <h1>Customize Your Meal Plan</h1>
+    <form id="mealplan-form">
+      <label>Name:<br><input type="text" name="name" required></label><br>
+      <label>Email:<br><input type="email" name="email" required></label><br>
+      <label>Number of days:<br><input type="number" name="days" min="1" max="14" required></label><br>
+      <fieldset>
+        <legend>Select preferences:</legend>
+        <label><input type="checkbox" name="pref" value="vegetarian"> Vegetarian</label><br>
+        <label><input type="checkbox" name="pref" value="vegan"> Vegan</label><br>
+        <label><input type="checkbox" name="pref" value="gluten-free"> Gluten‑Free</label><br>
+        <label><input type="checkbox" name="pref" value="high-protein"> High‑Protein</label><br>
+      </fieldset>
+      <button type="submit">Get Suggested Plan</button>
+    </form>
+
+    <section id="mealplan-output">-->      
+      <!-- JavaScript-generated meal plan will appear here -->
+<!--</section>
+  </main>
+
+  <script src="SEACateringHomePage.js"></script>
+  <script>
+    const mpForm = document.getElementById('mealplan-form');
+    const output = document.getElementById('mealplan-output');
+
+    mpForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = mpForm.name.value;
+      const days = parseInt(mpForm.days.value);
+      const prefs = Array.from(mpForm.pref)
+                         .filter(chk => chk.checked)
+                         .map(chk => chk.value);
+      if (!days) return;
+
+      output.innerHTML = `<h2>Hello ${name}, here’s your ${days}-day meal plan:</h2>`;
+      const ul = document.createElement('ul');
+      for (let d = 1; d <= days; d++) {
+        const li = document.createElement('li');
+        li.textContent = `Day ${d}: Balanced meals` +
+          (prefs.length ? ` tailored to: ${prefs.join(', ')}` : '');
+        ul.appendChild(li);
+      }
+      output.appendChild(ul);
+      mpForm.scrollIntoView({ behavior: 'smooth' });
+    -->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Plans – SEA Catering</title>
+    <link rel="stylesheet" href="CSS/SEACateringHomePage.css"> 
+    <link rel="stylesheet" href="CSS/SEACateringMealPlans.css">
+</head>
+<body>
+    <!-- Top nav -->
+    <nav>
+        <h1>SEA Catering</h1>
+        <!-- Menu Toggle Button (Visible on Mobile) -->
+        <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+        <ul id="navbar" class="menu">
+            <li><a href="SEACateringHomePage.html">Home</a></li>
+            <li><a href="SEACateringMealPlans.html" class="active">Meal Plans</a></li>
+            <li><a href="#features">Subscriptions</a></li>
+            <li><a href="SEACateringTestimonials.html">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <header class="header-container">
+            <img src="Images/01-Header-scaled.jpg" alt="Deliciously prepared food spread">
+            <div class="header-description">
+                <h1>Our Meal Plans</h1>
+                <p>Customizable, Healthy, and Delivered Nationwide.</p>
+                <a href="">Begin My Subscription</a>
+            </div>
+        </header>
+
+        <section class="meal-plans-section">
+            <h2>Find Your Perfect Plan</h2>
+            <div class="meal-plan-grid">
+                <!-- Meal Plan Card 1: Diet Plan -->
+                <div class="meal-plan-card" data-plan-id="diet">
+                    <img src="Images/diet meal.jpg" alt="Diet meal plan">
+                    <div class="card-content">
+                        <h3>Diet Plan</h3>
+                        <p class="price">Rp30.000,00 per meal</p>
+                        <p>Balanced and calorie-controlled meals to support your weight management goals.</p>
+                        <button class="see-details-btn" data-plan-id="diet">See More Details</button>
+                    </div>
+                </div>
+
+                <!-- Meal Plan Card 2: Protein Plan -->
+                <div class="meal-plan-card" data-plan-id="protein">
+                    <img src="Images/protein.webp" alt="Protein meal plan">
+                    <div class="card-content">
+                        <h3>Protein Plan</h3>
+                        <p class="price">Rp40.000,00 per meal</p>
+                        <p>High-protein meals designed for muscle growth, repair, and sustained energy.</p>
+                        <button class="see-details-btn" data-plan-id="protein">See More Details</button>
+                    </div>
+                </div>
+
+                <!-- Meal Plan Card 3: Royal Plan -->
+                <div class="meal-plan-card" data-plan-id="royal">
+                    <img src="Images/royal.webp" alt="Royal meal plan">
+                    <div class="card-content">
+                        <h3>Royal Plan</h3>
+                        <p class="price">Rp60.000,00 per meal</p>
+                        <p>Premium gourmet meals crafted with exquisite ingredients for a luxurious dining experience.</p>
+                        <button class="see-details-btn" data-plan-id="royal">See More Details</button>
+                    </div>
+                </div>
+
+                <!-- Removed Athlete's Fuel as per new requirements -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Pop-up Structure -->
+    <div class="modal-overlay" id="planModal">
+        <div class="modal-content">
+            <button class="modal-close-btn">&times;</button>
+            <h3 id="modal-plan-name"></h3>
+            <p class="modal-price" id="modal-plan-price"></p>
+            <p id="modal-plan-description"></p>
+            <p id="modal-plan-details"></p>
+        </div>
+    </div>
+
+    <footer>
+            <!-- Copyright, Policy and Terms of Service -->
+            <p>&copy; 2025 SEA Catering. All rights reserved.</p>
+            <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </footer>
+        
+    <script src="Javascript/SEACateringHomePage.js"></script>
+    <script src="Javascript/SEACateringMealPlans.js"></script>
+</body>
+</html>
