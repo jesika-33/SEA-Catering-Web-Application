@@ -1,0 +1,113 @@
+/* General Body and Main Layout */
+
+        main {
+            flex-grow: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Contact Section Styles */
+        .contact-section {
+            width: 90%;
+            max-width: 800px;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .contact-info-group {
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-left: 5px solid #4caf50;
+            border-radius: 5px;
+            text-align: left;
+        }
+
+        .contact-info-group h3 {
+            color: #4caf50;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+
+        .contact-info-group p {
+            margin: 5px 0;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .contact-info-group p strong {
+            color: #333;
+        }
+
+        .contact-info-group a {
+            color: #4caf50;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info-group a:hover {
+            text-decoration: underline;
+            color: #45a049;
+        }
+
+        .quick-links, .social-media-links {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .quick-links h3, .social-media-links h3 {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .quick-links ul, .social-media-links ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .quick-links ul li a, .social-media-links ul li a {
+            display: inline-block;
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-media-links ul li a {
+            background-color: #555; /* Different color for social media */
+        }
+
+        .quick-links ul li a:hover, .social-media-links ul li a:hover {
+            background-color: #45a049;
+        }
+        .social-media-links ul li a:hover {
+            background-color: #333;
+        }
