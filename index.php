@@ -73,7 +73,13 @@
         </section>
     </main>
 
-    <script src="Javascript/SEACateringNavBar.js"></script>
+    <script>
+    function toggleMenu() {
+  const menu = document.querySelector('.menu');
+  menu.classList.toggle('mobile');
+}
+
+  </script>
     <script>
 
         document.addEventListener('DOMContentLoaded', function() {

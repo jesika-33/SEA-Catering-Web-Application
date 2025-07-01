@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us – SEA Catering</title>
+  <link rel="stylesheet" href="CSS/SEACateringHomePage.css">
+  <link rel="stylesheet" href="CSS/SEACateringContactPage.css">
+</head>
+<body>
+  <!-- Navigation Bar-->
+  <nav>
+    <h1>SEA Catering</h1>
+    <!-- Menu Toggle Button (Visible on Mobile) -->
+    <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+    <ul id="navbar" class="menu">
+      <li><a href="SEACateringHomePage.html">Home</a></li>
+      <li><a href="SEACateringMealPlans.html">Meal Plans</a></li>
+      <li><a href="SEACateringSubscription.html">Subscription</a></li>
+      <li><a href="SEACateringTestimonials.html">Testimonials</a></li>
+      <li><a href="SEACateringContactPage.html" class="active">Contact</a></li>
+      <li><a href="index.php">Sign In</a></li>
+    </ul>
+  </nav>
+    
+  <!-- Page Title and Description -->
+  <header class="header-container">
+    <img src="Images/admin.jpg" alt="Contact Us header image">
+    <div class="header-description">
+      <h1>Contact Us</h1>
+      <p>We'd love to hear from you!</p>
+    </div>
+  </header>
+
+  <main>
+    <!-- Contact Informations -->
+    <section class="contact-section">
+      <h2>Reach Out to SEA Catering Indonesia</h2>
+      <p>Whether you have questions about our meal plans, need assistance with your subscription, or want to provide feedback, our team is ready to help.</p>
+
+      <!-- Basic Contact Informations-->
+      <div class="contact-info">
+        <div class="contact-info-group">
+          <h3>Head Office</h3>
+          <p><strong>Address:</strong> Jl. Merdeka Raya No. 123, Jakarta Pusat, DKI Jakarta 10110, Indonesia</p>
+          <p><strong>Phone Number:</strong> <a href="tel:+6281234567890">+62 812-3456-789</a> (Active for WhatsApp & Calls)</p>
+          <p><strong>Email:</strong> <a href="mailto:info@seacatering.co.id">info@seacatering.co.id</a></p>
+          <p><strong>Customer Service Hours:</strong> Monday - Friday, 09:00 AM - 05:00 PM WIB (Western Indonesian Time)</p>
+        </div>
+      </div>
+
+      <!-- Email Adress for Certain Inquiry -->
+      <div class="quick-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="mailto:info@seacatering.co.id">General Inquiries</a></li>
+          <li><a href="mailto:support@seacatering.co.id">Subscription Support</a></li>
+          <li><a href="mailto:partnerships@seacatering.co.id">Partnerships</a></li>
+        </ul>
+      </div>
+
+      <!-- Social Media Links -->
+      <div class="social-media-links">
+        <h3>Connect With Us</h3>
+        <ul>
+          <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram: @SEACateringID</a></li>
+          <li><a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook: /SEACateringIndonesia</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <script>
+    function toggleMenu() {
+  const menu = document.querySelector('.menu');
+  menu.classList.toggle('mobile');
+}
+
+  </script>
+</body>
+</html>
