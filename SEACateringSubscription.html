@@ -124,13 +124,189 @@
     </section>
   </main>
 
-  <script type="module" src="Javascript/SEACateringSubscription.js"></script>
   <script>
     function toggleMenu() {
   const menu = document.querySelector('.menu');
   menu.classList.toggle('mobile');
 }
 
+let userId; // Will store a unique ID for the user's local session
+
+document.addEventListener('DOMContentLoaded', async function() {
+    // Check if a userId already exists in localStorage, otherwise generate a new one
+    // This ensures a consistent 'user' ID for local data across sessions
+    userId = localStorage.getItem('localUserId');
+    if (!userId) {
+        userId = crypto.randomUUID(); // Generate a new unique ID
+        localStorage.setItem('localUserId', userId); // Store it for future sessions
+        console.log('Generated and stored new local user ID:', userId);
+    } else {
+        console.log('Using existing local user ID:', userId);
+    }
+
+    // Now that we have a userId, we can proceed with setting up form listeners
+    setupFormListeners();
+
+    function setupFormListeners() {
+        const subscriptionForm = document.getElementById('subscription-form');
+        const fullNameInput = document.getElementById('fullName');
+        const phoneNumberInput = document.getElementById('phoneNumber');
+        const planRadios = document.querySelectorAll('input[name="plan"]');
+        const mealTypeCheckboxes = document.querySelectorAll('input[name="mealType"]');
+        const deliveryDayCheckboxes = document.querySelectorAll('input[name="deliveryDay"]');
+        const totalPriceSpan = document.getElementById('totalPrice');
+
+        const EXCHANGE_RATE_FACTOR = 4.3; // As per the formula
+
+        // Function to format price as Rupiah
+        function formatRupiah(amount) {
+            return 'Rp' + amount.toLocaleString('id-ID', { minimumFractionDigits: 0 });
+        }
+
+        // Function to calculate total price
+        function calculateTotalPrice() {
+            let selectedPlanPrice = 0;
+            let selectedMealTypes = 0;
+            let selectedDeliveryDays = 0;
+
+            // Get selected plan price
+            planRadios.forEach(radio => {
+                if (radio.checked) {
+                    selectedPlanPrice = parseFloat(radio.dataset.price);
+                }
+            });
+
+            // Count selected meal types
+            mealTypeCheckboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    selectedMealTypes++;
+                }
+            });
+
+            // Count selected delivery days
+            deliveryDayCheckboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    selectedDeliveryDays++;
+                }
+            });
+
+            let totalPrice = 0;
+            if (selectedPlanPrice > 0 && selectedMealTypes > 0 && selectedDeliveryDays > 0) {
+                totalPrice = selectedPlanPrice * selectedMealTypes * selectedDeliveryDays * EXCHANGE_RATE_FACTOR;
+            }
+
+            totalPriceSpan.textContent = formatRupiah(totalPrice);
+        }
+
+        // Add event listeners for price calculation
+        planRadios.forEach(radio => radio.addEventListener('change', calculateTotalPrice));
+        mealTypeCheckboxes.forEach(checkbox => checkbox.addEventListener('change', calculateTotalPrice));
+        deliveryDayCheckboxes.forEach(checkbox => checkbox.addEventListener('change', calculateTotalPrice));
+
+        // Initial calculation when page loads
+        calculateTotalPrice();
+
+        // Form submission handling
+        subscriptionForm.addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // --- Validation ---
+            let isValid = true;
+            let errorMessage = [];
+
+            // 1. Full Name
+            if (fullNameInput.value.trim() === '') {
+                errorMessage.push('Full Name is required.');
+                isValid = false;
+            }
+
+            // 2. Active Phone Number
+            if (phoneNumberInput.value.trim() === '' || !phoneNumberInput.checkValidity()) {
+                errorMessage.push('A valid Phone Number (10-15 digits) is required.');
+                isValid = false;
+            }
+
+            // 3. Plan Selection
+            let isPlanSelected = Array.from(planRadios).some(radio => radio.checked);
+            if (!isPlanSelected) {
+                errorMessage.push('Please select a Meal Plan.');
+                isValid = false;
+            }
+
+            // 4. Meal Type
+            let selectedMealTypesCount = Array.from(mealTypeCheckboxes).filter(checkbox => checkbox.checked).length;
+            if (selectedMealTypesCount === 0) {
+                errorMessage.push('Please select at least one Meal Type (Breakfast, Lunch, or Dinner).');
+                isValid = false;
+            }
+
+            // 5. Delivery Days
+            let selectedDeliveryDaysCount = Array.from(deliveryDayCheckboxes).filter(checkbox => checkbox.checked).length;
+            if (selectedDeliveryDaysCount === 0) {
+                errorMessage.push('Please select at least one Delivery Day.');
+                isValid = false;
+            }
+
+            if (!isValid) {
+                alert('Please correct the following errors:\n' + errorMessage.join('\n'));
+                return;
+            }
+
+            // --- If validation passes, prepare data for Local Storage ---
+            const formData = new FormData(subscriptionForm);
+            const subscriptionData = {
+                id: crypto.randomUUID(), // Assign a unique ID to this specific subscription
+                userId: userId, // Associate with the local user ID
+                fullName: formData.get('fullName'),
+                phoneNumber: formData.get('phoneNumber'),
+                plan: formData.get('plan'),
+                planPricePerMeal: parseFloat(document.querySelector(`input[name="plan"][value="${formData.get('plan')}"]`).dataset.price),
+                mealTypes: [],
+                deliveryDays: [],
+                allergies: formData.get('allergies') || 'None',
+                totalMonthlyPrice: totalPriceSpan.textContent, // Store the formatted price
+                submissionDate: new Date().toISOString() // Store as ISO string for consistent date format
+            };
+
+            // Collect all selected meal types
+            mealTypeCheckboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    subscriptionData.mealTypes.push(checkbox.value);
+                }
+            });
+
+            // Collect all selected delivery days
+            deliveryDayCheckboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    subscriptionData.deliveryDays.push(checkbox.value);
+                }
+            });
+
+            // --- Store in Local Storage ---
+            try {
+                // Retrieve existing subscriptions for this user from localStorage
+                const existingSubscriptionsJSON = localStorage.getItem(`userSubscriptions_${userId}`);
+                let userSubscriptions = existingSubscriptionsJSON ? JSON.parse(existingSubscriptionsJSON) : [];
+
+                // Add the new subscription
+                userSubscriptions.push(subscriptionData);
+
+                // Save updated subscriptions back to localStorage
+                localStorage.setItem(`userSubscriptions_${userId}`, JSON.stringify(userSubscriptions));
+
+                console.log("Subscription added to Local Storage successfully!");
+                alert('Thank you for your subscription! Your estimated monthly price is ' + totalPriceSpan.textContent + '. We will contact you soon. Your data has been saved locally.');
+
+                // Clear the form after successful submission
+                subscriptionForm.reset();
+                calculateTotalPrice(); // Recalculate price to Rp0.00 after reset
+            } catch (e) {
+                console.error("Error saving subscription to Local Storage: ", e);
+                alert("There was an error submitting your subscription. Please try again.");
+            }
+        });
+    }
+});
   </script>
 </body>
 </html>
