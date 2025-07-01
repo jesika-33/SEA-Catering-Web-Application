@@ -14,7 +14,7 @@
         <h1>SEA Catering</h1>
         <span class="menu-toggle" onclick="toggleMenu()">☰</span>
         <ul id="navbar" class="menu">
-            <li><a href="SEACatheringHomePage.html">Home</a></li>
+            <li><a href="SEACateringHomePage.html">Home</a></li>
             <li><a href="SEACateringMealPlans.html">Meal Plans</a></li>
             <li><a href="SEACateringSubscription.html">Subscription</a></li>
             <li><a href="SEACateringTestimonials.html">Testimonials</a></li>
