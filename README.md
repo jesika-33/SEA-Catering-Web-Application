@@ -188,7 +188,6 @@ This project is currently under development. The backend authentication (login a
 * **Testimonials:** While the frontend can submit, the backend processing for storing and retrieving testimonials is still in progress and only stored locally at the moment. Once the page is refreshed, all inputted data is lost.  
 * **Meal Plans:** The backend for dynamically fetching and managing meal plan data is still under development.  
 * **Subscriptions:** The backend logic for processing subscriptions and managing existing ones (pause/cancel) is not yet complete.  
-* **Logout:** The logout functionality is currently not working as expected.
 
 We are actively working to complete these features.
 
