@@ -1,0 +1,60 @@
+/* General Body and Main Layout */
+main {
+    flex-grow: 1;
+    padding: 1.25em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Subscription Form Styles */
+.subscription-form-section {
+    width: 90%;
+    max-width: 43.75em; /* 700px */
+    background-color: #fff;
+    padding: 1.875em; /* 30px */
+    border-radius: 0.625em; /* 10px */
+    box-shadow: 0 0.25em 0.9375em rgba(0, 0, 0, 0.1); /* 4px 15px */
+    margin-top: 2.5em; /* 40px */
+    margin-bottom: 2.5em;
+}
+
+.subscription-form-section h2 {
+    text-align: center;
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 1.5625em; /* 25px */
+}
+
+.subscription-form label {
+    display: block;
+    margin-bottom: 0.5em; /* 8px */
+    font-weight: bold;
+    color: #555;
+}
+
+.subscription-form input[type="text"],
+.subscription-form input[type="tel"],
+.subscription-form textarea {
+    width: calc(100% - 1.375em); /* 22px */
+    padding: 0.625em; /* 10px */
+    margin-bottom: 1.25em; /* 20px */
+    border: 0.0625em solid #ddd; /* 1px */
+    border-radius: 0.3125em; /* 5px */
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.subscription-form textarea {
+    resize: vertical;
+}
+
+.form-group {
+    margin-bottom: 1.25em; /* 20px */
+}
+
+.form-group.inline-radios label,
+.form-group.inline-checkboxes label {
+    display: inline-block;
+    margin-right: 0.
+}
