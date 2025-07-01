@@ -138,7 +138,6 @@ sea-catering/
 │   ├── SEACateringNavBar.js  
 │   ├── SEACateringMealPlans.js  
 │   ├── SEACateringSubscription.js  
-│   └── SEACatering.js  
 ├── php/  
 │   ├── db\_config.php             \# Database connection configuration  
 │   ├── get\_testimonials.php      \# Fetches testimonials data (API) (Not Used Yet)  
@@ -187,7 +186,7 @@ This project is currently under development. The backend authentication (login a
 
 * **Testimonials:** While the frontend can submit, the backend processing for storing and retrieving testimonials is still in progress and only stored locally at the moment. Once the page is refreshed, all inputted data is lost.  
 * **Meal Plans:** The backend for dynamically fetching and managing meal plan data is still under development.  
-* **Subscriptions:** The backend logic for processing subscriptions and managing existing ones (pause/cancel) is not yet complete.  
+* **Subscriptions:** The backend logic for processing subscriptions and managing existing ones (pause/cancel) is not yet complete.  Current data is only stored locally and will be lost once the website gets refreshed.
 
 We are actively working to complete these features.
 
