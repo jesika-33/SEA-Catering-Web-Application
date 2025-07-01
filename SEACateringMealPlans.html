@@ -1,4 +1,74 @@
 
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Meal Plan – SEA Catering</title>
+  <link rel="stylesheet" href="CSS/SEACateringHomePage.css">
+  <link rel="stylesheet" href="CSS/SEACateringMealPlans.css">
+</head>
+<body>
+  <nav>
+      <h1>SEA Catering</h1>-->
+      <!-- Menu Toggle Button (Visible on Mobile) -->
+<!--<span class="menu-toggle" onclick="toggleMenu()">☰</span>
+      <ul id="navbar" class = "menu">
+      <li><a href="SEACateringHomePage.html">Home</a></li>
+      <li><a href="SEACateringMealPlans.html" class="active">Meal Plans</a></li>
+      <li><a href="#features">Subscriptions</a></li>
+      <li><a href="SEACateringTestimonials.html">Testimonials</a></li>
+      <li><a href="#contact">Contact</a></li>
+      </ul>  
+  </nav>
+
+  <main>
+    <h1>Customize Your Meal Plan</h1>
+    <form id="mealplan-form">
+      <label>Name:<br><input type="text" name="name" required></label><br>
+      <label>Email:<br><input type="email" name="email" required></label><br>
+      <label>Number of days:<br><input type="number" name="days" min="1" max="14" required></label><br>
+      <fieldset>
+        <legend>Select preferences:</legend>
+        <label><input type="checkbox" name="pref" value="vegetarian"> Vegetarian</label><br>
+        <label><input type="checkbox" name="pref" value="vegan"> Vegan</label><br>
+        <label><input type="checkbox" name="pref" value="gluten-free"> Gluten‑Free</label><br>
+        <label><input type="checkbox" name="pref" value="high-protein"> High‑Protein</label><br>
+      </fieldset>
+      <button type="submit">Get Suggested Plan</button>
+    </form>
+
+    <section id="mealplan-output">-->      
+      <!-- JavaScript-generated meal plan will appear here -->
+<!--</section>
+  </main>
+
+  <script src="SEACateringHomePage.js"></script>
+  <script>
+    const mpForm = document.getElementById('mealplan-form');
+    const output = document.getElementById('mealplan-output');
+
+    mpForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = mpForm.name.value;
+      const days = parseInt(mpForm.days.value);
+      const prefs = Array.from(mpForm.pref)
+                         .filter(chk => chk.checked)
+                         .map(chk => chk.value);
+      if (!days) return;
+
+      output.innerHTML = `<h2>Hello ${name}, here’s your ${days}-day meal plan:</h2>`;
+      const ul = document.createElement('ul');
+      for (let d = 1; d <= days; d++) {
+        const li = document.createElement('li');
+        li.textContent = `Day ${d}: Balanced meals` +
+          (prefs.length ? ` tailored to: ${prefs.join(', ')}` : '');
+        ul.appendChild(li);
+      }
+      output.appendChild(ul);
+      mpForm.scrollIntoView({ behavior: 'smooth' });
+    -->
+<!--</html>-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +90,7 @@
       <li><a href="SEACateringSubscription.html">Subscriptions</a></li>
       <li><a href="SEACateringTestimonials.html">Testimonials</a></li>
       <li><a href="SEACateringContactPage.html">Contact</a></li>
-      <li><a href="SEACateringAuth.html">Sign In</a></li>
+      <li><a href="index.php">Sign In</a></li>
     </ul>
   </nav>
 
